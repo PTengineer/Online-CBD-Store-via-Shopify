@@ -1,0 +1,76 @@
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte faqpage">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<html>
+<head>
+<style>
+button.accordion {
+background-color: #F1E7E2;
+color: #444;
+cursor: pointer;
+padding: 18px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 15px;
+transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+background-color: #F9A666;
+}
+
+button.accordion:after {
+content: '\002B';
+color: #777;
+font-weight: bold;
+float: right;
+margin-left: 5px;
+}
+
+button.accordion.active:after {
+content: "\2212";
+}
+
+div.panel {
+padding: 0 18px;
+background-color: #F1E7E2;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.2s ease-out;
+}
+</style>
+</head>
+<body>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].onclick = function() {
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if (panel.style.maxHeight){
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+} 
+}
+}
+</script>
+
+</body>
+</html>
