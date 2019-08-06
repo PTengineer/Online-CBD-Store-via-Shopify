@@ -1,10 +1,25 @@
 <!-- New Disclosure Section for Footer -->
 <div id="disclosure">
-  <div class="simpletext">
-    <h1> {{ section.settings.text-box }} </h1>
-    <h3> {{ section.settings.text }} </h3>
+  <div class="disclose-bg">
+  <div class="site-disclosure">
+    <h4> {{ section.settings.text-box }} </h4>
+    <p> {{ section.settings.text }} </p>
+  </div>
   </div>
 </div>
+
+<style>
+  .disclose-bg {
+    background-color: {{ section.settings.color_bg }};
+    margin-bottom: -55px;
+  }
+  .site-disclosure {
+    /* styles to complement footer */
+    text-align: center;
+    padding: 55px 18px 0;
+  }
+</style>
+
 {% schema %}
   {
     "name": "Disclosure Box",
@@ -13,13 +28,25 @@
         "id": "text-box",
         "type": "text",
         "label": "Heading",
-        "default": "Title"
+        "default": "Disclosure"
       },
+	  {
+        "id": "color_bg",
+        "type": "color",
+        "label": "Section BG",
+        "default": "#788188"
+	  },
       {
         "id": "text",
         "type": "richtext",
-        "label": "Add custom text below",
+        "label": "Add custom disclosure below",
         "default": "<p>Add your Disclosure content here</p>"
+      }
+    ],
+	"presets": [
+      {
+        "name": "Disclosure Box",
+        "category": "Disclosure"
       }
     ]
   }
