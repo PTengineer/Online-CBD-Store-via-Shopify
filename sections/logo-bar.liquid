@@ -31,12 +31,20 @@
 </div>
 
 <style>
+
   .logo-bar__item {
     display: inline-block;
     vertical-align: middle;
     max-width: 160px;
     margin: 0 8.5px 35px;
-}
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .logo-bar__item {
+	  max-width: 100px;
+	}
+  }
+  
 </style>
 
 {% schema %}
