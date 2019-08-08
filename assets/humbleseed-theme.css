@@ -1,0 +1,38 @@
+/*-----------------------------------------------
+  Humbleseed | Custom Theme Style Rules
+  Seann Kearney - Aug 2019
+-----------------------------------------------*/
+
+
+/*----------------
+# Branded Fonts
+----------------*/
+
+
+@font-face {
+  font-family: "Newzald-Book";
+  src: url("NewzaldWeb-Book.woff2") format("woff2"),
+       url("NewzaldWeb-Book.woff") format("woff");
+} 
+
+@font-face {
+  font-family: "AtlasGrotesk-Medium";
+  src: url("AtlasGrotesk-Medium-Web.woff2") format("woff2"),
+       url("AtlasGrotesk-Medium-Web.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AtlasGrotesk-Light";
+  src: url("AtlasGrotesk-Light-Web.woff2") format("woff2"),
+       url("AtlasGrotesk-Light-Web.woff") format("woff");
+}
+
+/*---------------
+# Typography
+--------------*/
+
+h1 { font-family: "Newzald-Book" !important; }
+
+h2, .site-nav { font-family: "AtlasGrotesk-Medium" !important; }
+
+h3, body { font-family: "AtlasGrotesk-Light" !important; }
