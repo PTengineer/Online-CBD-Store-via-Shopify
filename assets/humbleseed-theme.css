@@ -36,3 +36,23 @@ h1 { font-family: "Newzald-Book" !important; }
 h2, .site-nav { font-family: "AtlasGrotesk-Medium" !important; }
 
 h3, body { font-family: "AtlasGrotesk-Light" !important; }
+
+
+/*---------------------------
+# Home Sections Padding
+----------------------------*/
+
+@media only screen and (min-width: 750px)
+.index-section {
+    margin-top: 35px;
+	/*padding-top: 55px;*/
+    /*padding-bottom: 55px;*/
+}
+.index-section {
+    padding-top: 35px;
+    /*padding-bottom: 35px;*/
+}
+.newsletter-section {
+    padding-top: 55px;
+    margin-top: -35px;
+}
