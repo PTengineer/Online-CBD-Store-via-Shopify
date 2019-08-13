@@ -27,33 +27,48 @@
        url("AtlasGrotesk-Light-Web.woff") format("woff");
 }
 
+
+/*------------
+# Normalize
+------------*/
+hr {
+    margin: 35px 0;
+    border: 0;
+    border-bottom: 1px solid #e8e9eb;
+}
+
+
 /*---------------
 # Typography
 --------------*/
 
 h1 { font-family: "Newzald-Book" !important; }
 
-h2, .site-nav { font-family: "AtlasGrotesk-Medium" !important; }
+h2, .site-nav, .product-single__description b { font-family: "AtlasGrotesk-Medium" !important; }
 
 h3, body { font-family: "AtlasGrotesk-Light" !important; }
 
+.bespoke-txt-section p {
+    color: #fff;
+}
 
 /*---------------------------
 # Home Sections Padding
 ----------------------------*/
 
-.index-section {
+/*.index-section {
     padding-top: 35px;
     padding-bottom: 0px;
-}
+}*/
 .newsletter-section {
     padding-top: 55px;
-    margin-top: -35px;
+    margin: -55px 0;
 }
 @media only screen and (min-width: 750px) {
   .index-section {
       margin-top: 35px;
-	  padding-top: 0px;
-      padding-bottom: 0px;
+	  padding-top: 35px;
+      padding-bottom: 20px;
 	}
 }
+
