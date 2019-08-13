@@ -46,7 +46,7 @@ h1 { font-family: "Newzald-Book" !important; }
 
 h2, .site-nav, .product-single__description b { font-family: "AtlasGrotesk-Medium" !important; }
 
-h3, body { font-family: "AtlasGrotesk-Light" !important; }
+h3, body, .btn, .shopify-payment-button .shopify-payment-button__button--unbranded { font-family: "AtlasGrotesk-Light" !important; }
 
 .bespoke-txt-section p {
     color: #fff;
