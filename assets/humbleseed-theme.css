@@ -62,13 +62,13 @@ h3, body, .btn, .shopify-payment-button .shopify-payment-button__button--unbrand
 }*/
 .newsletter-section {
     padding-top: 55px;
-    margin: -55px 0;
+    margin: 0 0 -55px;
 }
-@media only screen and (min-width: 750px) {
+/*@media only screen and (min-width: 750px) {
   .index-section {
       margin-top: 35px;
 	  padding-top: 35px;
       padding-bottom: 20px;
 	}
-}
+}*/
 
