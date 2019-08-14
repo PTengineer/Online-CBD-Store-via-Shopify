@@ -46,7 +46,7 @@ h1 { font-family: "Newzald-Book" !important; }
 
 h2, .site-nav, .product-single__description b { font-family: "AtlasGrotesk-Medium" !important; }
 
-h3, body, .btn, .shopify-payment-button .shopify-payment-button__button--unbranded { font-family: "AtlasGrotesk-Light" !important; }
+h3, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-button__button--unbranded { font-family: "AtlasGrotesk-Light" !important; }
 
 .bespoke-txt-section p {
     color: #fff;
@@ -72,3 +72,37 @@ h3, body, .btn, .shopify-payment-button .shopify-payment-button__button--unbrand
 	}
 }*/
 
+/*---------------------------
+# Footer Block Sections
+----------------------------*/
+
+  .logo-footer {
+    float: left;
+	margin: -11px 0;
+    padding: 0 25px 13px 0;
+  }
+
+  img.ft-logo {
+    max-width: 55px;
+    border: 0;
+  }
+
+  .site-footer__linklist-item {
+    display: block;
+    padding: 15px 0; }
+  @media only screen and (min-width: 750px) {
+    .site-footer__linklist-item {
+      padding: 0 30px 5px 0;
+      float: left;	  } }
+  .site-footer__linklist-item:last-of-type {
+    padding-right: 0;
+	padding-bottom: 35px;}
+	
+  .site-footer__rte h4 {
+    margin-bottom: 12.5px; }
+    @media only screen and (min-width: 750px) {
+      .site-footer__rte h4 {
+        min-height: 1.1875em;
+        margin-bottom: 8px;
+		padding: 12px 0 0;
+		clear: left;  } }	

@@ -70,6 +70,49 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="page-width">
+  <div class="logo-footer">
+    <img src="{{ 'HUMBLE-SEED_Icon-Color_RGB_1.png' | asset_url }}"  class="ft-logo" alt="{{ shop.name }}" itemprop="logo">
+  </div>
+<!-- Customize Footer section with links menu and disclosure blocks -->
+<!-- Preferably away from the case style statements -->
+	{% for block in section.blocks %}
+	<div class="site-footer__item--full-width">
+	  {% if block.type == 'link_list' %}
+		<!-- output link list block content -->
+				{%- assign footer_linklist = block.settings.menu -%}
+		  <ul class="site-footer__linklist
+					{% if inline_list %}list--inline{% endif %}">
+			{%- for link in linklists[footer_linklist].links -%}
+			  <li class="site-footer__linklist-item">
+				<a href="{{ link.url }}"
+				  {% if link.current %} aria-current="page"{% endif %}
+				>
+				  {{ link.title | escape }}
+				</a>
+			  </li>
+			{%- endfor -%}
+		  </ul>
+	  {% endif %}
+
+	  {% if block.type == 'disclosure' %}
+		<!-- output disclosure content -->
+        <div class="footer-disclosure">
+                {%- if block.settings.text != blank -%}
+                  <div class="site-footer__rte
+                              {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+					<h4>{{ block.settings.title | escape }}</h4>
+					{{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+		</div>	 
+  	  {% endif %}
+
+    </div>
+
+	  
+	{% endfor %}
+
+
     <div class="site-footer__content">
       {%- for block in section.blocks -%}
 
@@ -80,8 +123,10 @@
              {{ block.shopify_attributes }}>
           <div class="site-footer__item-inner site-footer__item-inner--{{ block.type }}">
 
-            {%- if block.settings.title -%}
+            {%- if block.type != 'disclosure' -%}
+			{%- if block.settings.title -%}
               <p class="h4">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
             {%- endif -%}
 
             {%- case block.type -%}
@@ -135,20 +180,7 @@
                   </div>
                 {%- endif -%}
 
-              {%- when 'link_list' -%}
-                {%- assign footer_linklist = block.settings.menu -%}
-                  <ul class="site-footer__linklist
-                            {% if inline_list %}list--inline{% endif %}">
-                    {%- for link in linklists[footer_linklist].links -%}
-                      <li class="site-footer__linklist-item">
-                        <a href="{{ link.url }}"
-                          {% if link.current %} aria-current="page"{% endif %}
-                        >
-                          {{ link.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
+              {%- when 'disclosure' -%}
 
             {%- endcase -%}
 
@@ -156,8 +188,9 @@
         </div>
       {%- endfor -%}
     </div>
-  </div>
 
+  </div>
+  
   <hr class="site-footer__hr">
 
   <div class="page-width">
@@ -271,6 +304,7 @@
 </footer>
 
 
+<!-- Customize schema, disclosure input block added -->
 
 {% schema %}
 {
@@ -286,7 +320,7 @@
     "zh-CN": "页脚",
     "zh-TW": "頁尾"
   },
-  "max_blocks": 4,
+  "max_blocks": 5,
   "settings": [
     {
       "type": "header",
@@ -494,6 +528,79 @@
           "default": {
             "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
             "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
+            "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
+            "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
+            "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
+            "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
+            "nl": "<p>Deel winkeldetails, promoties of merkinhoud met uw klanten.</p>",
+            "pt-BR": "<p>Compartilhe detalhes da loja, promoções ou conteúdo da marca com seus clientes.</p>",
+            "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
+            "zh-TW": "<p>與客戶分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
+          }
+        }
+      ]
+    },
+    {
+      "type": "disclosure",
+      "name": {
+        "de": "Text",
+        "en": "Disclosure Text",
+        "es": "Texto",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fr": "Titre",
+            "it": "Heading",
+            "ja": "見出し",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "de": "Reden Sie über Ihr Unternehmen",
+            "en": "Type of Disclosure",
+            "es": "Habla sobre tu negocio",
+            "fr": "Parlez de votre entreprise",
+            "it": "Parla della tua attività commerciale",
+            "ja": "あなたのビジネスについて語る",
+            "nl": "Vertel over uw bedrijf",
+            "pt-BR": "Fale sobre o seu negócio",
+            "zh-CN": "谈论您的业务",
+            "zh-TW": "描述您的商家"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": {
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "テキスト",
+            "nl": "Tekst",
+            "pt-BR": "Texto",
+            "zh-CN": "文本",
+            "zh-TW": "文字"
+          },
+          "default": {
+            "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
+            "en": "<p>Enter the relevant and necessary disclosure content per regulatory group.</p>",
             "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
             "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
             "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
