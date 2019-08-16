@@ -111,6 +111,10 @@ h3, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-butto
     text-align: justify;
   }
   
+  .d-footer__rte{
+    font-size: 14px;
+  }
+
   .top-footer {
   	display: -ms-flexbox;
   	-ms-flex-align: start;
