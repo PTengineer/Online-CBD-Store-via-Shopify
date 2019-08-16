@@ -75,46 +75,54 @@
   </div>
 <!-- Customize Footer section with links menu and disclosure blocks -->
 <!-- Preferably away from the case style statements -->
+  <div class="top-footer">
+  
 	{% for block in section.blocks %}
-	<div class="site-footer__item--full-width">
-	  {% if block.type == 'link_list' %}
-		<!-- output link list block content -->
-				{%- assign footer_linklist = block.settings.menu -%}
-		  <ul class="site-footer__linklist
-					{% if inline_list %}list--inline{% endif %}">
-			{%- for link in linklists[footer_linklist].links -%}
-			  <li class="site-footer__linklist-item">
-				<a href="{{ link.url }}"
-				  {% if link.current %} aria-current="page"{% endif %}
-				>
-				  {{ link.title | escape }}
-				</a>
-			  </li>
-			{%- endfor -%}
-		  </ul>
-	  {% endif %}
-
-	  {% if block.type == 'disclosure' %}
-		<!-- output disclosure content -->
-        <div class="footer-disclosure">
-                {%- if block.settings.text != blank -%}
-                  <div class="site-footer__rte
-                              {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
-					<h4>{{ block.settings.title | escape }}</h4>
-					{{ block.settings.text }}
-                  </div>
-                {%- endif -%}
-		</div>	 
+	{%- if block.type == 'link_flat' or block.type == 'disclosure' -%}
+	
+	<div class="top-footer__item">
+  	<div class="site-footer__item--full-width">
+  	  {% if block.type == 'link_flat' %}
+  		<!-- output link list block content -->
+  				{%- assign footer_linklist = block.settings.menu -%}
+  		  <ul class="site-footer__linklist
+  					{% if inline_list %}list--inline{% endif %}">
+  			{%- for link in linklists[footer_linklist].links -%}
+  			  <li class="site-footer__linklist-item">
+  				<a href="{{ link.url }}"
+  				  {% if link.current %} aria-current="page"{% endif %}
+  				>
+  				  {{ link.title | escape }}
+  				</a>
+  			  </li>
+  			{%- endfor -%}
+  		  </ul>
   	  {% endif %}
+  
+  	  {% if block.type == 'disclosure' %}
+  		<!-- output disclosure content -->
+          <div class="footer-disclosure">
+                  {%- if block.settings.text != blank -%}
+                    <div class="d-footer__rte
+                                {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+  					<h4>{{ block.settings.title | escape }}</h4>
+  					{{ block.settings.text }}
+                    </div>
+                  {%- endif -%}
+  		</div>	 
+    	  {% endif %}
+  
+      </div>
 
-    </div>
-
-	  
+	</div>
+	{%- endif -%}
 	{% endfor %}
+  </div>
 
 
     <div class="site-footer__content">
       {%- for block in section.blocks -%}
+	    {%- if block.type != 'link_flat' and block.type != 'disclosure' -%}
 
         <div class="site-footer__item
                     {% if section.blocks.size == 1 %} site-footer__item--center{% endif %}
@@ -123,11 +131,11 @@
              {{ block.shopify_attributes }}>
           <div class="site-footer__item-inner site-footer__item-inner--{{ block.type }}">
 
-            {%- if block.type != 'disclosure' -%}
-			{%- if block.settings.title -%}
+												 
+            {%- if block.settings.title -%}
               <p class="h4">{{ block.settings.title | escape }}</p>
             {%- endif -%}
-            {%- endif -%}
+						 
 
             {%- case block.type -%}
               {%- when 'newsletter' -%}
@@ -180,17 +188,30 @@
                   </div>
                 {%- endif -%}
 
-              {%- when 'disclosure' -%}
+              {%- when 'link_list' -%}
+                {%- assign footer_linklist = block.settings.menu -%}
+                  <ul class="site-footer__linklist
+                            {% if inline_list %}list--inline{% endif %}">
+                    {%- for link in linklists[footer_linklist].links -%}
+                      <li class="site-footer__linklist-item">
+                        <a href="{{ link.url }}"
+                          {% if link.current %} aria-current="page"{% endif %}
+                        >
+                          {{ link.title | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
 
             {%- endcase -%}
 
           </div>
         </div>
+		{%- endif -%}
       {%- endfor -%}
     </div>
-
   </div>
-  
+
   <hr class="site-footer__hr">
 
   <div class="page-width">
@@ -304,7 +325,7 @@
 </footer>
 
 
-<!-- Customize schema, disclosure input block added -->
+<!-- Customize schema, disclosure input and flat links blocks added -->
 
 {% schema %}
 {
@@ -320,7 +341,7 @@
     "zh-CN": "页脚",
     "zh-TW": "頁尾"
   },
-  "max_blocks": 5,
+  "max_blocks": 6,
   "settings": [
     {
       "type": "header",
@@ -537,6 +558,68 @@
             "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
             "zh-TW": "<p>與客戶分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
           }
+        }
+      ]
+    },
+    {
+      "type": "link_flat",
+      "name": {
+        "de": "Menü",
+        "en": "TopMenu",
+        "es": "Menú",
+        "fr": "Menu",
+        "it": "Menu",
+        "ja": "メニュー",
+        "nl": "Menu",
+        "pt-BR": "Menu",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fr": "Titre",
+            "it": "Heading",
+            "ja": "見出し",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "de": "Quick-Links",
+            "en": "Quick links",
+            "es": "Enlaces rápidos",
+            "fr": "Liens rapides",
+            "it": "Link rapidi",
+            "ja": "クイックリンク",
+            "nl": "Snelle links",
+            "pt-BR": "Links rápidos",
+            "zh-CN": "快速链接",
+            "zh-TW": "快速連結"
+          }
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": {
+            "de": "Menü",
+            "en": "Menu",
+            "es": "Menú",
+            "fr": "Menu",
+            "it": "Menu",
+            "ja": "メニュー",
+            "nl": "Menu",
+            "pt-BR": "Menu",
+            "zh-CN": "菜单",
+            "zh-TW": "選單"
+          },
+          "default": "footer"
         }
       ]
     },
