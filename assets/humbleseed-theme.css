@@ -42,7 +42,7 @@ hr {
 # Typography
 --------------*/
 
-h1 { font-family: "Newzald-Book" !important; }
+h1, .h1, .h2, .h4 { font-family: "Newzald-Book" !important; }
 
 h2, .site-nav, .product-single__description b { font-family: "AtlasGrotesk-Medium" !important; }
 
