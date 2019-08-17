@@ -48,12 +48,12 @@ h2, .site-nav, .product-single__description b { font-family: "AtlasGrotesk-Mediu
 
 h3, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-button__button--unbranded { font-family: "AtlasGrotesk-Light" !important; }
 
-.bespoke-txt-section p {
+.bespoke-txt-section h2, .bespoke-txt-section p {
     color: #fff;
 }
 
 /*---------------------------
-# Home Sections Padding
+# Home Sections 
 ----------------------------*/
 
 /*.index-section {
@@ -71,6 +71,10 @@ h3, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-butto
       padding-bottom: 20px;
 	}
 }*/
+
+.hoverfly:hover {
+    opacity: .5;
+}
 
 /*---------------------------
 # Footer Block Sections
