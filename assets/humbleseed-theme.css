@@ -52,6 +52,10 @@ h3, h4, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-b
     color: #fff;
 }
 
+.section-header.text-center h2 {
+    color: #fff;
+}
+
 /*---------------------------
 # Home Sections 
 ----------------------------*/
@@ -75,6 +79,11 @@ h3, h4, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-b
 .hoverfly:hover {
     opacity: .5;
 }
+
+.index-section--newsletter-background {
+    background-color: #3B4643;
+}
+
 
 /*---------------------------
 # Footer Block Sections
@@ -116,7 +125,7 @@ h3, h4, body, .btn, .site-footer .h4, .shopify-payment-button .shopify-payment-b
   }
   
   .d-footer__rte{
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .top-footer {
