@@ -1,0 +1,32 @@
+<!-- snippet/product-collection-brief.liquid -->
+
+<!-- if any changes are made to product descriptions they must be changed manually here -->
+
+{% assign title = product.title %}
+  {% case title %}
+    {% when 'Full Spectrum Hemp' %}
+	    <div class="rte-setting"><p>20mg+ CBD Per Capsule</p>
+		<p>CBD Rich Pure Powdered <br>Hemp Flower</p></div>
+      
+      
+        <a href="/products/full-spectrum-hemp" class="btn btn--secondary btn--small">
+          Read more
+        </a>
+    {% when 'Hemp Fusion' %}
+	    <div class="rte-setting"><p>10mg+ CBD Per Capsule</p>
+		<p>Pure Powdered 50/50 <br>Hemp Flower &amp; Root Blend</p></div>
+      
+      
+        <a href="/products/hemp-fusion" class="btn btn--secondary btn--small">
+          Read more
+        </a>
+    {% when 'Hemp Root' %}
+	    <div class="rte-setting"><p>Pure Powdered<br>Hemp Root</p>
+		<p>THC, CBD &lt;&lt;0.3%</p>
+		<p></p></div>
+      
+      
+        <a href="/products/hemp-root" class="btn btn--secondary btn--small">
+          Read more
+        </a>
+  {% endcase %}
